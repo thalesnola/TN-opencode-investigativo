@@ -1,0 +1,54 @@
+# ALLOWLIST — ignora tudo e libera item por item.
+#
+# Desenho deliberado, igual ao do repositorio claude-config: com uma denylist,
+# todo arquivo novo entra por padrao, e o dia em que um banco de caso cair aqui
+# ninguem percebe. Com allowlist, o novo fica de fora ate alguem decidir o contrario.
+#
+# NUNCA afrouxar isto. Em particular, rag/store/ guarda os bancos por caso:
+# texto integral dos documentos, entidades extraidas e proveniencia. E material
+# sigiloso e nao vai para repositorio nenhum, publico ou privado.
+
+*
+
+# --- codigo e documentacao (conhecimento generico) ---
+!.gitignore
+!.gitattributes
+!README.md
+!AGENTS.md
+!GUIA.md
+!docs/
+!docs/**
+!scripts/
+!scripts/**
+!instalar.py
+!sincronizar_template.py
+!investigar.py
+!opencode.json.template
+
+# --- servidores MCP ---
+!rag/
+!rag/rag_server.py
+!rag/forense_server.py
+
+# --- caso de demonstracao (dados ficticios: RFC 5737 e example.org) ---
+!rag/demo/
+!rag/demo/*
+
+# --- reforco explicito: o que jamais entra ---
+rag/store/
+**/*.db
+**/*.db-wal
+**/*.db-shm
+**/__pycache__/
+**/*.pyc
+
+# artefatos locais, gerados por maquina
+opencode.json
+opencode.json.anterior
+tui.json
+auth.json
+node_modules/
+package.json
+package-lock.json
+bun.lock
+*.log

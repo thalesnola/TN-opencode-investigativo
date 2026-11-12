@@ -1,0 +1,4 @@
+# LF em tudo. Script com CRLF quebra no macOS (o shebang leva o \r junto),
+# e este repositorio existe justamente para atravessar os dois sistemas.
+* text=auto eol=lf
+*.db binary
